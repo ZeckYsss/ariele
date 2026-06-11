@@ -1,0 +1,143 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 16px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-blush: var(--blush);
+  --color-rose: var(--rose);
+  --color-lilac: var(--lilac);
+  --color-mint: var(--mint);
+  --color-gold: var(--gold);
+  --color-nude: var(--nude);
+  --color-cream: var(--cream);
+
+  --font-serif: "Cormorant Garamond", ui-serif, Georgia, serif;
+  --font-sans: "Quicksand", ui-sans-serif, system-ui, sans-serif;
+  --font-script: "Great Vibes", cursive;
+}
+
+:root {
+  --radius: 1rem;
+
+  /* Garden palette */
+  --cream: oklch(0.985 0.012 80);
+  --blush: oklch(0.93 0.04 15);
+  --rose: oklch(0.82 0.09 12);
+  --lilac: oklch(0.84 0.06 310);
+  --mint: oklch(0.88 0.06 160);
+  --gold: oklch(0.78 0.1 80);
+  --nude: oklch(0.9 0.03 50);
+
+  --background: oklch(0.985 0.012 80);
+  --foreground: oklch(0.32 0.05 15);
+
+  --card: oklch(1 0 0 / 0.7);
+  --card-foreground: oklch(0.32 0.05 15);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.32 0.05 15);
+
+  --primary: oklch(0.7 0.12 12);
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.93 0.04 310);
+  --secondary-foreground: oklch(0.32 0.05 15);
+  --muted: oklch(0.96 0.015 60);
+  --muted-foreground: oklch(0.5 0.04 20);
+  --accent: oklch(0.78 0.1 80);
+  --accent-foreground: oklch(0.25 0.04 20);
+  --destructive: oklch(0.6 0.22 25);
+  --destructive-foreground: oklch(0.99 0 0);
+
+  --border: oklch(0.88 0.03 30 / 0.6);
+  --input: oklch(0.92 0.02 30);
+  --ring: oklch(0.78 0.1 12);
+
+  --shadow-petal: 0 30px 80px -30px color-mix(in oklab, var(--rose) 35%, transparent);
+  --shadow-soft: 0 20px 60px -20px color-mix(in oklab, var(--lilac) 30%, transparent);
+  --gradient-sky: linear-gradient(180deg, oklch(0.97 0.02 320) 0%, oklch(0.97 0.025 60) 50%, oklch(0.95 0.04 150) 100%);
+  --gradient-rose: linear-gradient(135deg, var(--blush), var(--lilac));
+  --gradient-gold: linear-gradient(135deg, oklch(0.85 0.09 80), oklch(0.72 0.13 60));
+}
+
+.dark { color-scheme: light; }
+
+@layer base {
+  * { border-color: var(--color-border); }
+  html, body { scroll-behavior: smooth; }
+  body {
+    background: var(--gradient-sky);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "liga";
+    min-height: 100dvh;
+    overflow-x: hidden;
+  }
+  h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 500; letter-spacing: -0.01em; }
+  .font-script { font-family: var(--font-script); }
+  .font-serif { font-family: var(--font-serif); }
+}
+
+@utility glass-card {
+  background: color-mix(in oklab, white 75%, transparent);
+  backdrop-filter: blur(18px) saturate(1.1);
+  -webkit-backdrop-filter: blur(18px) saturate(1.1);
+  border: 1px solid color-mix(in oklab, white 70%, transparent);
+  box-shadow: var(--shadow-soft);
+}
+
+@utility gold-text {
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility shimmer {
+  background: linear-gradient(110deg, transparent 30%, color-mix(in oklab, var(--gold) 40%, transparent) 50%, transparent 70%);
+  background-size: 200% 100%;
+  animation: shimmer 3s linear infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+@utility animate-float { animation: float-y 6s ease-in-out infinite; }
+
+@keyframes wing-flap {
+  0%, 100% { transform: scaleX(1) rotateY(0deg); }
+  50% { transform: scaleX(0.7) rotateY(40deg); }
+}
