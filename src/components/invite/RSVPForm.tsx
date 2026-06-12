@@ -123,10 +123,10 @@ export function RSVPForm() {
             </div>
           </div>
 
-          <div>
+          {/*<div>
             <label className="text-xs uppercase tracking-widest text-muted-foreground">Observações</label>
             <textarea name="notes" rows={3} className={fieldCls} placeholder="Restrições alimentares, recado..." />
-          </div>
+          </div>*/}
 
           <div>
             <label className="text-xs uppercase tracking-widest text-muted-foreground block mb-2">

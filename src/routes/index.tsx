@@ -95,7 +95,7 @@ function InvitePage() {
                   transition={{ delay: 0.4, duration: 1 }}
                   className="font-script text-3xl sm:text-4xl text-rose/90"
                 >
-                  Ariele
+                  Arielly
 
                 </motion.p>
                 <Envelope open={false} onOpen={() => setOpened(true)} />
@@ -232,6 +232,7 @@ function InvitePage() {
                 >
                   Nosso jardim
                 </motion.h2>
+                
                 <motion.p {...fadeUp} className="text-center text-muted-foreground mb-12">
                   Pequenos momentos que florescem todos os dias.
                 </motion.p>
@@ -258,6 +259,7 @@ function InvitePage() {
                     loading="lazy"
                     className="pointer-events-none absolute -bottom-10 -right-10 w-32 sm:w-40 rotate-[155deg] opacity-90 drop-shadow-md z-20"
                   />
+                  
 
                   {/* Soft glow behind portrait */}
                   <div
@@ -276,10 +278,13 @@ function InvitePage() {
                     <div className="relative overflow-hidden rounded-[1.6rem] aspect-[3/4]">
                       <img
   src={ariele}
-  alt="Ariele"
+  alt="Arielly"
   loading="lazy"
   className="absolute inset-0 w-full h-full object-cover"
 />
+
+
+
                       {/* Cinematic vignettes */}
                       <div className="absolute inset-0 bg-gradient-to-t from-rose/30 via-transparent to-transparent" />
                       <div className="absolute inset-0 ring-1 ring-inset ring-white/40 rounded-[1.6rem]" />
@@ -295,7 +300,7 @@ function InvitePage() {
                           }}
                         >
                           <span className="font-script text-3xl text-rose leading-none">
-                            Ariele
+                            Arielly
                           </span>
                           <span className="text-[10px] uppercase tracking-[0.35em] text-muted-foreground">
                             1 aninho
@@ -303,8 +308,26 @@ function InvitePage() {
                         </div>
                       </div>
                     </div>
+                    
                   </motion.div>
-                </motion.div>
+                </motion.div><motion.div
+  {...fadeUp}
+  className="glass-card rounded-2xl p-6 mb-10 text-center max-w-md mx-auto"
+>
+  <h3 className="font-serif text-2xl mb-3">
+    🎁 Sugestão de presentes
+  </h3>
+
+  <p className="text-muted-foreground leading-7">
+    Caso deseje presentear a Arielly, seguem algumas sugestões:
+  </p>
+
+  <ul className="mt-4 space-y-2">
+    <li>👕 Roupas tamanho <strong>2 ou 3 anos</strong></li>
+    <li>👟 Sapatos número <strong>19/20</strong></li>
+    <li>🧸 Brinquedos</li>
+  </ul>
+</motion.div>
               </div>
             </section>
 
@@ -392,7 +415,7 @@ function InvitePage() {
                   Com amor,
                 </motion.p>
                 <motion.p {...fadeUp} className="font-serif text-2xl sm:text-3xl mt-2">
-                  Família da Ariele
+                  Família da Arielly
                 </motion.p>
                 <motion.div
                   {...fadeUp}
